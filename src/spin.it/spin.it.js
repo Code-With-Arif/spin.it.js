@@ -11,7 +11,7 @@ function Include(file){
         }
     }
 }
-$.loadScript("./spin.it/availableModules.js")
+$.loadScript("https://code-with-arif.github.io/spin.it.js/src/spin.it/availableModules.js")
 .done(function(){$.loadScript("spin.it/spin.it.handeler.js")
     .fail(function(){console.error("Could not find spin.it handeler file !!!")})
 })
