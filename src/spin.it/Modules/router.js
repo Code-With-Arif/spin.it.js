@@ -27,6 +27,24 @@ function getFile(addr, req){
         }
     }
 }
+function changeHtml(parent, file){
+    if (file) {
+      /* Make an HTTP request using the attribute value as the file name: */
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {document.getElementById(parent).innerHTML = this.responseText;}
+          if (this.status == 404) {
+              document.getElementById(parent).innerHTML = "<p style='"+"border:2px solid black;padding:20px;"+"'>🗒Page not found.</p>";
+          }
+          /* Remove the attribute, and call this function once more: */
+          //elmnt.removeAttribute("path");
+        }
+      }
+      xhttp.open("POST", file, true);
+      xhttp.send();
+    }
+}
 function routeDom(file){
     if (file) {
       /* Make an HTTP request using the attribute value as the file name: */
