@@ -2,13 +2,16 @@
 
 
 
-function Include(file){
+function Include(file, callback){
     for(let i=0;i<SpinItModules.length;i++){
         if(SpinItModules[i][0] === file){
             $.loadScript(SpinItModules[i][1]);
         }else{
             console.error("There is no module named '"+file+"'");
         }
+    }
+    if(typeof callback === "function"){
+        callback();
     }
 }
 $.loadScript("https://code-with-arif.github.io/spin.it.js/src/spin.it/availableModules.js")
